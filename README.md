@@ -6,7 +6,7 @@ I made this module for my personal use, but do not hesitate to leave your though
 
 ## Installation
 
-    $ npm install mirror
+    $ npm install mirror-js
 
 ## Usage
 
