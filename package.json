@@ -1,0 +1,30 @@
+{
+  "name": "mirror-js",
+  "version": "1.0.0",
+  "description": "Simple JavaScript reflection API",
+  "main": "src/mirror.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arnaud-xp/mirror-js.git"
+  },
+  "keywords": [
+    "reflection",
+    "mirror"
+  ],
+  "author": "Arnaud PONEL <arnaud@xpressive.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnaud-xp/mirror-js/issues"
+  },
+  "homepage": "https://github.com/arnaud-xp/mirror-js",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-jslint": "^0.2.2",
+    "gulp-mocha": "^2.0.1",
+    "mocha": "^2.2.4"
+  }
+}
