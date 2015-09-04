@@ -174,7 +174,7 @@ Returns cloned object's name
 
 ```javascript
 var Glass = function (color) {
-    this.color = color
+    this.color = color;
 };
 
 Glass.prototype = (function () {
@@ -187,6 +187,16 @@ Glass.prototype = (function () {
 });
 
 console.log(mirror(Glass).name()); // Glass
+```
+
+### .parameters()
+
+Return the parameters names of the given function.
+
+```javascript
+var awesomeFunction = function (foo, bar, baz) {};
+
+console.log(mirror(awesomeFunction).parameters()); // ['foo', 'bar', 'baz']
 ```
 
 ## License

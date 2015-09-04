@@ -6,8 +6,8 @@
         var mirror = (function () {
 
             function Reflect(obj) {
-                if (typeof obj !== 'object') {
-                    throw new Error('This is not an object');
+                if (typeof obj !== 'object' && typeof obj !== 'function') {
+                    throw new Error('This is not an object or function.');
                 }
 
                 this._obj = obj;
@@ -22,6 +22,10 @@
                  * @return {array}          List of properties
                  */
                 var _getProperties = function (obj, filter) {
+                    if (typeof obj !== 'object') {
+                        throw new Error('This is not an object.');
+                    }
+
                     var objProperties = [],
                         prop,
                         propFilter = filter ? new RegExp(filter, 'i') : undefined;
@@ -121,6 +125,22 @@
                      */
                     name: function () {
                         return this.construct().name;
+                    },
+
+                    /**
+                     * Returns the parameters of a function (or the parameters of the "construtor" or a "class")
+                     * @return {Array} Function parameters names
+                     */
+                    parameters: function () {
+                        var functionString = this._obj.toString(),
+                            stripCommentsReg = /(\/\/.*$)|(\/\*[\s\S]*?\*\/)|(\s*=[^,\)]*(('(?:\\'|[^'\r\n])*')|("(?:\\"|[^"\r\n])*"))|(\s*=[^,\)]*))/mg,
+                            argumentNamesReg = /([^\s,]+)/g,
+                            result = null;
+
+                        functionString = functionString.replace(stripCommentsReg, '');
+                        result = functionString.slice(functionString.indexOf('(')+1, functionString.indexOf(')')).match(argumentNamesReg);
+                        
+                        return result || [];
                     }
 
                 };
