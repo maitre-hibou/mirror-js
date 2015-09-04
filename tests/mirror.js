@@ -16,7 +16,11 @@
                     return 'Hi People !';
                 }
             }
-        };
+        },
+
+        testFunction = function (foo, bar, baz) {};
+
+    function testSecondFunction (foo, bar, baz) {}
 
     describe('mirror()', function () {
 
@@ -214,6 +218,23 @@
             });
 
         });
+
+        describe('.parameters', function () {
+
+            it('should return an array of strings for a function', function () {
+
+                assert.typeOf(mirror(testFunction).parameters(), 'array');
+                assert.typeOf(mirror(testSecondFunction).parameters(), 'array');
+
+            });
+
+            it('should return "foo" as first parameter for the functions testFunction and testSecondFunction', function () {
+
+                assert.ok(mirror(testFunction).parameters()[0] === 'foo');
+                assert.ok(mirror(testSecondFunction).parameters()[0] === 'foo');
+                
+            });
+        })
 
     });
 
