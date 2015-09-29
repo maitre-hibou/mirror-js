@@ -34,6 +34,6 @@
 
     gulp.task('default', ['lint', 'test'], function () {
         console.log('Gulp loaded !');
-    })
+    });
     
 }());
