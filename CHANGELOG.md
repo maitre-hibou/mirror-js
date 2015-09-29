@@ -1,3 +1,9 @@
+1.1.2
+=====
+
+* Fixed version numbers
+* Fixed typo
+
 1.1.0
 =====
 
